@@ -1,3 +1,5 @@
+var commands = require('./commands');
+
 process.stdout.write('prompt > ')
 
 process.stdin.on('data', function (data) {
@@ -5,11 +7,11 @@ process.stdin.on('data', function (data) {
 
   switch(cmd){
     case 'pwd':
-      process.stdout.write(process.cwd())
+      commands.pwd()
       process.stdout.write('\nprompt > ')
       break
     case 'date':
-      process.stdout.write(new Date().toString())
+      commands.date()
       process.stdout.write('\nprompt > ')
       break
     default:
