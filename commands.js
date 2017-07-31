@@ -17,6 +17,10 @@ module.exports = {
         process.stdout.write(file.toString() + "\n")
       })
     })
+  },
+
+  echo: function(args) {
+    process.stdout.write(args.join(' '))
   }
 
 }

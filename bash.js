@@ -3,8 +3,11 @@ var commands = require('./commands');
 process.stdout.write('prompt > ')
 
 process.stdin.on('data', function (data) {
-  var cmd = data.toString().trim(); // remove the newline
-  commands[cmd]();
+  var input = data.toString().trim().split(' '); // remove the newline and split
+  var args = input.slice(1)
+  var cmd = input[0]
+
+  commands[cmd](args);
   process.stdout.write('\nprompt > ')
   // switch(cmd){
   //   case 'pwd':
@@ -18,5 +21,4 @@ process.stdin.on('data', function (data) {
   //   default:
   //     throw "Invalid command"
   // }
-
 });
