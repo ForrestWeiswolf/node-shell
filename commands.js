@@ -2,15 +2,15 @@ var fs = require('fs')
 
 module.exports = {
 
-  pwd: function() {
+  pwd: function(args) {
     process.stdout.write(process.cwd())
   },
 
-  date: function() {
+  date: function(args) {
     process.stdout.write(new Date().toString())
   },
 
-  ls: function() {
+  ls: function(args) {
     fs.readdir('.', function(err, files){
       if(err) throw err
       files.forEach(function(file){
