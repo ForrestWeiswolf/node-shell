@@ -20,7 +20,12 @@ module.exports = {
   },
 
   echo: function(args) {
-    process.stdout.write(args.join(' '))
+    args = args.join(' ')
+    if(process.env[args]){
+      process.stdout.write(process.env[args])
+    } else {
+      process.stdout.write(args)
+    }
   }
 
 }
