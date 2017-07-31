@@ -7,6 +7,9 @@ process.stdin.on('data', function (data) {
     case 'pwd':
       process.stdin.write(process.cwd())
       break
+    case 'date':
+      process.stdin.write(new Date().toString())
+      break
     default:
       throw "Invalid command"
   }
