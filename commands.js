@@ -2,7 +2,7 @@ var fs = require('fs')
 
 module.exports = {
 
-  pwd: function(args) {
+  pwd: function(argsrefactored ) {
     process.stdout.write(process.cwd())
   },
 
@@ -26,6 +26,13 @@ module.exports = {
     } else {
       process.stdout.write(args)
     }
-  }
+  },
 
+  cat: function(args){
+    var filename = args[0];
+    fs.readFile(filename, function(err, contents){
+      if(err) throw err
+      process.stdout.write(contents + "\n")
+    })
+  }
 }
