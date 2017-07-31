@@ -6,6 +6,9 @@ process.stdin.on('data', function (data) {
   switch(cmd){
     case 'pwd':
       process.stdin.write(process.cwd())
+      break
+    default:
+      throw "Invalid command"
   }
 
 });
